@@ -1,12 +1,60 @@
 import "dart:io";
+import 'dart:math';
 
 void main() {
-  pattern17(4);
+  //pattern17(10);
+  pattern312(3);
+  //pattern30(5);
   // pattern2(4);
   // pattern1(4);
 }
 
+void pattern312(int n) {
+  /*
+4  4  4  4  4  4  4   
+4  3  3  3  3  3  4   
+4  3  2  2  2  3  4   
+4  3  2  1  2  3  4   
+4  3  2  2  2  3  4   
+4  3  3  3  3  3  4   
+4  4  4  4  4  4  4   
+  */
+  n = n * 2;
+  int originalN = n;
+  for (int row = 0; row <= n; row++) {
+    for (int col = 0; col <= n; col++) {
+      int atEveryIndex =
+          originalN - 2 - min(min(row, col), min(n - row, n - col));
+      stdout.write("$atEveryIndex  ");
+    }
+    print(' ');
+  }
+}
+
+void pattern311(int n) {
+  /*
+  0 0 0 0 0
+  0 2 2 2 0
+  0 2 1 2 0
+  0 2 2 2 0
+  0 0 0 0 0
+  */
+  n = n * 2;
+
+  for (int row = 0; row <= n; row++) {
+    for (int col = 0; col <= n; col++) {
+      int atEveryIndex = min(min(row, col), min(n - row, n - col));
+      stdout.write("$atEveryIndex  ");
+    }
+    print(' ');
+  }
+}
+
 void pattern17(int n) {
+  // 4 3 2 1 2 3 4
+  //   3 2 1 2 3
+  //     2 1 2
+  //       1
   for (int row = 1; row <= 2 * n; row++) {
     int totalColumNo = row > n ? 2 * n - row : row;
     int totalSpcae = n - row;
@@ -17,7 +65,9 @@ void pattern17(int n) {
     for (int col = totalColumNo; col >= 1; col--) {
       stdout.write('$col' + " ");
     }
-    for (int col = 2; col <= totalColumNo; col++) stdout.write("$col ");
+    for (int col = 2; col <= totalColumNo; col++) {
+      stdout.write("$col ");
+    }
 
     print(' ');
   }
