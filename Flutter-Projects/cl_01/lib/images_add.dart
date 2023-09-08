@@ -71,25 +71,6 @@ class HomeScreen extends StatelessWidget {
               height: 200,
               fit: BoxFit.scaleDown,
             ),
-            RichText(
-                text: TextSpan(
-                    text: 'Hello',
-                    style: TextStyle(
-                      color: Colors.red,
-                      fontSize: 30,
-                    ),
-                    children: [
-                  TextSpan(
-                    text: 'World',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                    ),
-                  ),
-                  TextSpan(
-                    text: 'Name',
-                  ),
-                ]))
           ],
         ));
   }
