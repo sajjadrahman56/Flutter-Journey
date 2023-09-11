@@ -26,43 +26,72 @@ class HomeScree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home Screen'),
-      ),
-      body: Center(
-        child: Column(children: [
-          // both GestureDetector and InkWell are used to detect gestures
-          // make a text button
-          // it works after single tap , double tap and long press
-          //
-          //
+        appBar: AppBar(
+          title: const Text('Home Screen'),
+        ),
+        body: Center(
+          child: Scrollbar(
+            thickness: 30,
+            child: ListView(
+              /// list of widgets
+              /// automatic scrool direction/view
+              ///  no main axis alignment or cross axis alignment
+              ///  We can not achive the task of row and column with listview
+              /// by defautl scroll direction is vertical but we can change it to horizontal
+              /// we can not use listview inside listview
+              ///
 
-          GestureDetector(
-            onDoubleTap: () {
-              print('Double Tap');
-            },
-            onLongPress: () {
-              print('Long Press');
-            },
-            onTap: () {
-              print('Single Tap');
-            },
-            child: Text(
-              'Hello World',
-              style: TextStyle(fontSize: 30),
+              children: [
+                ListTile(
+                  title: Text('User Name'),
+                  subtitle: Text('user@gmail.com'),
+                  leading: Icon(Icons.person),
+                  trailing: Icon(Icons.edit),
+                  onTap: () {
+                    print('ListTile Tapped');
+                  },
+                ),
+                ListTile(
+                  title: Text('User Name'),
+                  subtitle: Text('user@gmail.com'),
+                  leading: Icon(Icons.person),
+                  trailing: Icon(Icons.edit),
+                  onTap: () {
+                    print('ListTile Tapped');
+                  },
+                ),
+                Divider(
+                  color: Colors.red,
+                  thickness: 1,
+                ),
+                ListTile(
+                  title: Text('User Name'),
+                  subtitle: Text('user@gmail.com'),
+                  leading: Icon(Icons.person),
+                  trailing: Icon(Icons.edit),
+                  onTap: () {
+                    print('ListTile Tapped');
+                  },
+                ),
+                ListTile(
+                  title: Text('User Name'),
+                  subtitle: Text('user@gmail.com'),
+                  leading: Icon(Icons.person),
+                  trailing: Icon(Icons.edit),
+                  onTap: () {
+                    print('ListTile Tapped');
+                  },
+                ),
+                Text('Hello World'),
+                Text('Hello World'),
+                Text('Hello World'),
+                Text('Hello World'),
+                Text('Hello World'),
+                Text('Hello World'),
+                Text('Hello World'),
+              ],
             ),
           ),
-          InkWell(
-            onTap: () {
-              print('InkWell');
-            },
-            child: Text(
-              'Hello World',
-              style: TextStyle(fontSize: 30),
-            ),
-          ),
-        ]),
-      ),
-    );
+        ));
   }
 }
