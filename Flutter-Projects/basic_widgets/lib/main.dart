@@ -1,3 +1,5 @@
+import 'package:basic_widgets/routes/routes.dart';
+import 'package:basic_widgets/routes/routes_name.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,42 +17,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScree(),
+      initialRoute: RoutesName.home,
+      onGenerateRoute: Routes.generateRoute,
     );
-  }
-}
-
-class HomeScree extends StatelessWidget {
-  const HomeScree({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('Home Screen'),
-        ),
-        body: Center(
-          child: Scrollbar(
-              thickness: 30,
-              child: GridView(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 7,
-                ),
-                children: [
-                  Icon(Icons.ac_unit),
-                  Icon(Icons.ac_unit),
-                  Icon(Icons.ac_unit),
-                  Icon(Icons.ac_unit),
-                  Icon(Icons.ac_unit),
-                  Icon(Icons.ac_unit),
-                  Icon(Icons.ac_unit),
-                  Icon(Icons.ac_unit),
-                  Icon(Icons.ac_unit),
-                  Icon(Icons.ac_unit),
-                  Icon(Icons.ac_unit),
-                  Icon(Icons.ac_unit),
-                ],
-              )),
-        ));
   }
 }
