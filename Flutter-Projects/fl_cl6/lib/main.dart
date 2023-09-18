@@ -12,10 +12,95 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
+        home: ThemPlay(),
+        themeMode: ThemeMode.dark,
+        darkTheme: ThemeData(
+          brightness: Brightness.dark,
+          appBarTheme: AppBarTheme(
+            shadowColor: Colors.black,
+            backgroundColor: Colors.deepOrange,
+            foregroundColor: Color.fromARGB(255, 255, 255, 255),
+            elevation: 5,
+            centerTitle: true,
+            titleTextStyle: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ),
-        home: ProductList());
+        theme: ThemeData(
+          textTheme: TextTheme(
+            // by default textTheme is follow bodyMedium
+
+            bodyMedium: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+            bodySmall: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          appBarTheme: AppBarTheme(
+            shadowColor: Colors.black,
+            backgroundColor: Colors.pink,
+            foregroundColor: Colors.white,
+            elevation: 5,
+            centerTitle: true,
+            titleTextStyle: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          primaryColor: Colors.green,
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+              foregroundColor: Colors.pink,
+              backgroundColor: Colors.yellow,
+              side: BorderSide(color: Colors.black, width: 2),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0)),
+              elevation: 5,
+            ),
+          ),
+          textButtonTheme: TextButtonThemeData(
+            style: TextButton.styleFrom(
+              foregroundColor: Colors.deepOrange,
+              backgroundColor: Color.fromARGB(255, 75, 33, 243),
+              side: BorderSide(color: Colors.black, width: 2),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0)),
+              elevation: 5,
+            ),
+          ),
+        ));
+  }
+}
+
+class ThemPlay extends StatelessWidget {
+  ThemPlay({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Theme Play"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Hello World'),
+            Text(
+              'Hello World 2 ',
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+            TextButton(onPressed: () {}, child: Text('Click Me')),
+            ElevatedButton(onPressed: () {}, child: Text('Click Me'))
+          ],
+        ),
+      ),
+    );
   }
 }
 
