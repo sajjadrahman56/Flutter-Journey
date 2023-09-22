@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'navigation-route/myApp.dart';
+
 void main() {
-  runApp(const MyApp());
+  runApp(const MyApp2());
 }
 
 class MyApp extends StatelessWidget {
