@@ -21,6 +21,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   responsive_builder: ^0.7.0
   responsive_grid: ^2.4.4
+  device_preview: ^1.1.0
 
 dev_dependencies:
   flutter_test:
