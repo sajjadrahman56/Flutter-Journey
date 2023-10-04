@@ -1,8 +1,9 @@
-import 'package:fl_cl09_project/rspn.dart';
+import 'package:fl_cl09_project/clc/class_2_li.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp2());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSwatch(
           primarySwatch: Colors.blue,
         )),
-        home: Class1() // const MyHomePage(title: 'Todo'),
+        home: SumCounter() // Class1() // const MyHomePage(title: 'Todo'),
         );
   }
 }
