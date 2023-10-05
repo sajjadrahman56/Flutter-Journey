@@ -26,7 +26,18 @@ class _SumCounterState extends State<SumCounter> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(padding: const EdgeInsets.all(15), child: Text('$sum')),
+            Padding(
+                padding: const EdgeInsets.all(15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Total'),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text('$sum')
+                  ],
+                )),
             Padding(
               padding: const EdgeInsets.all(15),
               child: Form(
@@ -93,6 +104,27 @@ class _SumCounterState extends State<SumCounter> {
                     setState(() {
                       sum = sum;
                     });
+
+                    showAdaptiveDialog(
+                        barrierDismissible: false,
+                        barrierLabel: 'barrierLabel',
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text('Sum'),
+                            titlePadding: EdgeInsets.all(20),
+                            content: Text('$sum'),
+                            actions: [
+                              TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text(
+                                    'Ok',
+                                  ))
+                            ],
+                          );
+                        });
                   },
                   icon: const Icon(Icons.add),
                   label: const Text('Add'),

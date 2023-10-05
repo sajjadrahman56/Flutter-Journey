@@ -1,5 +1,5 @@
 import 'package:fl_cl09_project/clc/class_2_li.dart';
-
+import 'package:fl_cl09_project/water/water_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSwatch(
           primarySwatch: Colors.blue,
         )),
-        home: SumCounter() // Class1() // const MyHomePage(title: 'Todo'),
+        home: WaterScreen() // SumCounter() // AnimatedTextWidget()
+        //HomeScreenWater() //SumCounter() // Class1() // const MyHomePage(title: 'Todo'),
         );
   }
 }
