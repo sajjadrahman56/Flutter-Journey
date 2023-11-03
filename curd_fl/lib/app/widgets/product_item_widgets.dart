@@ -1,9 +1,11 @@
 
+import 'package:curd_fl/app/screen/product_list_screen.dart';
 import 'package:flutter/material.dart';
 
 class ProductItemWidget extends StatelessWidget {
-  const ProductItemWidget({super.key});
+  const ProductItemWidget({super.key,required this.product});
 
+  final Product product;
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -38,12 +40,12 @@ class ProductItemWidget extends StatelessWidget {
             
         },
 
-        leading: Image.network('https://picsum.photos/250?image=9',width: 80,),
+        leading: Image.network('${product.image}',width: 80,),
 
-        title: Text('Product Name'),
+        title: Text('${product.productName}'),
 
-        subtitle: Text('Product Description'),
-        trailing: Text('\$120',style: Theme.of(context).textTheme.bodyMedium),
+        subtitle: Text('${product.productCode}'),
+        trailing: Text('\$${product.unitPRice}',style: Theme.of(context).textTheme.bodyMedium),
       );
   }
 }

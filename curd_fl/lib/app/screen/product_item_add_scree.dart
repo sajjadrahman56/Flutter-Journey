@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 
 class ProductItemScreen extends StatefulWidget {
   const ProductItemScreen({super.key});
@@ -9,12 +12,54 @@ class ProductItemScreen extends StatefulWidget {
 
 class _ProductItemScreenState extends State<ProductItemScreen> {
   
-  TextEditingController _titleTEController = TextEditingController();
+  TextEditingController _imgTEController = TextEditingController();
   TextEditingController _productTEController = TextEditingController();
   TextEditingController _quantityTEController = TextEditingController();
   TextEditingController _priceTEController = TextEditingController();
   TextEditingController _totalPriceTEController = TextEditingController();
   TextEditingController _descriptionTEController = TextEditingController();
+
+  Future<void> addProduct() async{
+    
+    final Map<String, dynamic> productJson = {
+     
+ 
+             "Img":_imgTEController.text.trim(),
+ 
+    "ProductCode": _productTEController.text.trim() ?? 'saj29',
+    "ProductName": 'sajj29',
+    "Qty": _quantityTEController.text.trim() ?? '909090',
+    "TotalPrice":_totalPriceTEController.text.trim() ?? '100k',
+    "UnitPrice":"232323"
+          // 'ProductName': ,
+          // 'ProductCode': _productTEController.text,
+          // 'Qty': _quantityTEController.text,
+          // 'UnitPrice': _priceTEController.text,
+          // 'TotalPrice': _totalPriceTEController.text,
+          // 'Description': _descriptionTEController.text,
+        
+    };
+      String path ="https://crud.teamrabbil.com/api/v1/CreateProduct";
+
+      Response response = await post(
+        Uri.parse(path),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: jsonEncode(
+         productJson
+        )
+
+        /*
+    "Img":"",
+    "ProductCode":"121",
+    "ProductName":"saw343",
+    "Qty":"34",
+    "TotalPrice":"2323232",
+    "UnitPrice":"232323"
+        */
+      );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,10 +73,10 @@ class _ProductItemScreenState extends State<ProductItemScreen> {
           child: Column(
             children: [
               TextFormField(
-                controller: _titleTEController,
+                controller: _imgTEController,
                 decoration: InputDecoration(
-                  label: Text('Titile'),
-                  hintText: 'Enter Product Name',
+                  label: Text('img link'),
+                  hintText: 'Enter image link ',
                 ),
               ),
               TextFormField(
@@ -85,7 +130,9 @@ class _ProductItemScreenState extends State<ProductItemScreen> {
                     primary: Theme.of(context).colorScheme.primary,
                     onPrimary: Theme.of(context).colorScheme.onPrimary,
                   ),
-                  onPressed: (){}, 
+                  onPressed: (){
+                    addProduct();
+                  }, 
                 child: Text('Add')),
               )
             ],
@@ -96,7 +143,7 @@ class _ProductItemScreenState extends State<ProductItemScreen> {
   }
   @override
   void dispose() {
-    _titleTEController.dispose();
+    _imgTEController.dispose();
     _productTEController.dispose();
     _quantityTEController.dispose();
     _priceTEController.dispose();
