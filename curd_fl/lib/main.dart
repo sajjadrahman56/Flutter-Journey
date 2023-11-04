@@ -2,6 +2,8 @@
 import 'package:curd_fl/app/screen/product_list_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'live_class/screen/product_list_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  ProductViewScreen() //SelfProductScreen() //ProductListScreen(),
+      home: ProductListScreen()// ProductViewScreen() //SelfProductScreen() //ProductListScreen(),
     );
   }
 }
